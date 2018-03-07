@@ -157,15 +157,15 @@ class Behaviour():
             str: Completed notifier message
         """
 
-        message = ""
-        for analysis in analyzed_data:
-            if analyzed_data[analysis]:
-                if self.behaviour_config[analysis.lower()]['alert_enabled']:
-                    if analyzed_data[analysis]['is_hot']:
-                        message += "{}: {} is hot!\n".format(analysis, market_pair)
+        message = "%s " % market_pair
+            for analysis in analyzed_data:
+                if analyzed_data[analysis]:
+                    if self.behaviour_config[analysis.lower()]['alert_enabled']:
+                        if analyzed_data[analysis]['is_hot']:
+                            message += ", {}: HOT".format(analysis)
 
-                    if analyzed_data[analysis]['is_cold']:
-                        message += "{}: {} is cold!\n".format(analysis, market_pair)
+                        if analyzed_data[analysis]['is_cold']:
+                            message += ", {}: COLD".format(analysis)
 
         return message
 
