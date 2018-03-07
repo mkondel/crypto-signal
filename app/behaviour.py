@@ -158,14 +158,14 @@ class Behaviour():
         """
 
         message = "%s " % market_pair
-            for analysis in analyzed_data:
-                if analyzed_data[analysis]:
-                    if self.behaviour_config[analysis.lower()]['alert_enabled']:
-                        if analyzed_data[analysis]['is_hot']:
-                            message += ", {}: HOT".format(analysis)
+        for analysis in analyzed_data:
+            if analyzed_data[analysis]:
+                if self.behaviour_config[analysis.lower()]['alert_enabled']:
+                    if analyzed_data[analysis]['is_hot']:
+                        message += ", {}: HOT".format(analysis)
 
-                        if analyzed_data[analysis]['is_cold']:
-                            message += ", {}: COLD".format(analysis)
+                    if analyzed_data[analysis]['is_cold']:
+                        message += ", {}: COLD".format(analysis)
 
         return message
 
